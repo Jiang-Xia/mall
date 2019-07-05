@@ -1,5 +1,5 @@
 <template>
-    <div>category</div>
+    <div class="category">category</div>
 </template>
 
 <script>
@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+.category{
+  width: 100%;
+}
 </style>
