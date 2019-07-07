@@ -27,14 +27,21 @@
         default: false
       }
     },
+    watch: {
+      text(text) {
+        // 监听文字变化
+        this.loadingText = text;
+      }
+    },
     data() {
       return {
         loadingText: this.text
       };
     },
     methods: {
+      // 下拉设置文字
       setText(text) {
-        this.text = text;
+        this.loadingText = text;
       }
     }
   };

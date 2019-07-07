@@ -41,20 +41,27 @@
       this.getRecommend();
     },
     methods: {
+      update() {
+        return this.getRecommend();
+      },
+
       getRecommend() {
         // 当前页面数大于总页面数返回，不会请求
         if (this.curPage > this.totalPage) {
-          return;
+          return Promise.reject(new Error('没有更多了'));
         }
         // 调用 getHomeRecommend方法获取数据
-        getHomeRecommend(this.curPage).then(data => {
-          if (data) {
-            console.log(data);
-            this.curPage++;
-            this.totalPage = data.totalPage;
-            this.recommends = this.recommends.concat(data.itemList);
-            this.$emit('loaded', this.recommends);
-          }
+        return getHomeRecommend(this.curPage).then(data => {
+          return new Promise(resolve => {
+            if (data) {
+              // console.log(data);
+              this.curPage++;
+              this.totalPage = data.totalPage;
+              this.recommends = this.recommends.concat(data.itemList);
+              this.$emit('loaded', this.recommends);
+              resolve();
+            }
+          });
         });
       }
     }

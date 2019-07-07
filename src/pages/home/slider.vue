@@ -2,6 +2,7 @@
   <div class="slider-wrapper">
     <me-loading v-if="!sliders.length"></me-loading>
     <me-slider
+      :data="sliders"
       :direction="direction"
       :loop="loop"
       :interval="interval"
@@ -43,8 +44,15 @@
       this.getSlider();
     },
     methods: {
-      getSlider() {
-        getHomeSlider().then(data => {
+      // 外部使用的API
+      update() {
+        // 调用 home.js 中的 getSlider方法 随机更新幻灯片
+        return this.getSlider();// 使用return 因为要返回promise对象
+      },
+
+      // 内部使用的方法
+      getSlider() { // 获取幻灯片数据
+        return getHomeSlider().then(data => {
           this.sliders = data;
         });
       }

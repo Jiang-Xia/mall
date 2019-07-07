@@ -1,5 +1,4 @@
 <template>
-
   <me-navbar class="header" v-show="visible">
     <i class="iconfont icon-scan" slot="left"></i>
     <div slot="center">搜索框</div>
@@ -20,7 +19,7 @@
       };
     },
     methods: {
-      // API
+      // API 控制header显示和隐藏
       show() {
         this.visible = true;
       },
