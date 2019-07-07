@@ -38,3 +38,8 @@
   width: 100%;
   box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, 0.6);
 }
+// 分类页内容容器样式
+.g-content-container {
+  height: 100%;
+  padding-top: $navbar-height;
+}
