@@ -4,7 +4,7 @@ export const TIMEOUT = 10000;
 
 export const HOME_RECOMMEND_PAGESIZE = 20;
 
-export const jsonpOtptins = {
+export const jsonpOptions = {
   param: 'callback',
   timeout: TIMEOUT
 };

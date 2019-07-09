@@ -1,17 +1,31 @@
 <template>
   <me-navbar class="header">
-    <div slot="center">搜索框</div>
+    <me-search-box
+      slot="center"
+      @query="getQuery"
+      @click.native="goToSearch"
+      fake
+    ></me-search-box>
     <i class="iconfont icon-msg" slot="right"></i>
   </me-navbar>
 </template>
 
 <script>
   import MeNavbar from 'base/navbar';
-
+  import MeSearchBox from 'base/search-box';
   export default {
     name: 'CategoryHeader',
     components: {
-      MeNavbar
+      MeNavbar,
+      MeSearchBox
+    },
+    methods: {
+      getQuery(query) {
+        console.log(query);
+      },
+      goToSearch() {
+        this.$router.push('/search');// 跳转 会增加一条历史记录
+      }
     }
   };
 </script>

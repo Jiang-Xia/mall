@@ -4,10 +4,12 @@ import {SEARCH_HISTORY_KEYWORD_KEY} from 'pages/search/config';
 export const searchMixin = {
   methods: {
     $_search_selectItem(keyword) {
+      // $_ 代码风格书写，混合符号
       let keywords = storage.get(SEARCH_HISTORY_KEYWORD_KEY, []);
 
       if (keywords.length !== 0) {
         keywords = keywords.filter(val => val !== keyword);
+        // 数组过滤器   过滤不等于 keyword的保留，相等的替换
       }
 
       keywords.unshift(keyword);

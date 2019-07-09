@@ -1,17 +1,25 @@
 <template>
   <me-navbar class="header" v-show="visible">
     <i class="iconfont icon-scan" slot="left"></i>
-    <div slot="center">搜索框</div>
+    <me-search-box
+    placeholder="暑假大放送，好货五折起"
+    slot="center"
+    @query="getQuery"
+    fake
+    @click.native="goToSearch"
+    ></me-search-box>
     <i class="iconfont icon-msg" slot="right"></i>
   </me-navbar>
 </template>
 
 <script>
   import MeNavbar from 'base/navbar';
+  import MeSearchBox from 'base/search-box';
   export default {
     name: 'HomeHeader',
     components: {
-      MeNavbar
+      MeNavbar,
+      MeSearchBox
     },
     data() {
       return {
@@ -26,9 +34,11 @@
       hide() {
         this.visible = false;
       },
-
+      getQuery(query) {
+        console.log(query);
+      },
       goToSearch() {
-        this.$router.push('/search');
+        this.$router.push('/search');// 跳转 会增加一条历史记录
       }
     }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jsonp from 'assets/js/jsonp';
-import {SUCC_CODE, TIMEOUT, HOME_RECOMMEND_PAGESIZE, jsonpOtptins} from './config';
+import {SUCC_CODE, TIMEOUT, HOME_RECOMMEND_PAGESIZE, jsonpOptions} from './config';
 
 // 打乱数组顺序
 const shuffle = (arr) => {
@@ -62,7 +62,7 @@ export const getHomeRecommend = (page = 1, psize = HOME_RECOMMEND_PAGESIZE) => {
     frontCatId: ''
   };
 
-  return jsonp(url, params, jsonpOtptins).then(res => {
+  return jsonp(url, params, jsonpOptions).then(res => {
     // console.log(res);
     if (res.code === '200') {
       return res;
