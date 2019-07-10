@@ -1,12 +1,40 @@
 <template>
     <div class="product">
-      product
+      <product-header></product-header>
+      <product-content @click.native="getData"></product-content>
     </div>
 </template>
 
 <script>
+  import ProductHeader from './header';
+  import ProductContent from './content';
+  import {getProductDetails} from 'api/product';
   export default {
-    name: 'index'
+    name: 'MeProduct',
+    data() {
+      return {
+        proId: '',
+        proDetails: []
+      };
+    },
+    components: {
+      ProductHeader,
+      ProductContent
+    },
+    mounted() {
+      this.getId();
+    },
+    methods: {
+      getId() {
+        this.proId = this.$route.params.id;
+      },
+      getData() {
+        getProductDetails(this.proId).then((data) => {
+          this.proDetails = data;
+        });
+        console.log(this.proDetails);
+      }
+    }
   };
 </script>
 
