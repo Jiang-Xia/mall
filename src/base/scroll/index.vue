@@ -70,6 +70,7 @@
       // 更新滚动条高度
       update() {
         // console.log(this.$refs.swiper);
+        console.log('update');
         this.$nextTick(() => { // dom渲染完毕之后 在更新滚动条
           this.$refs.swiper && this.$refs.swiper.swiper.update();
         });

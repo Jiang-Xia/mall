@@ -35,7 +35,7 @@
         this.visible = false;
       },
       getQuery(query) {
-        console.log(query);
+        // console.log(query);
       },
       goToSearch() {
         this.$router.push('/search');// 跳转 会增加一条历史记录

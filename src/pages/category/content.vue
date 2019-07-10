@@ -134,7 +134,7 @@
         this.$refs.scroll && this.$refs.scroll.scrollToTop(speed);
       },
       updateScroll() {
-        this.$refs.scroll && this.$refs.scroll.update();
+        // this.$refs.scroll && this.$refs.scroll.update();
       },
       backTopShow(translate, scroll) {
         // console.log(translate);
